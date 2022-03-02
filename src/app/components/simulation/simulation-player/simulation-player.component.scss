@@ -1,0 +1,16 @@
+:host {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .name {
+        width: 100px;
+    }
+    .moral,
+    .energy {
+        width: 40px;
+    }
+    &.reverse {
+        text-align: right;
+        flex-direction: row-reverse;
+    }
+}

@@ -1,0 +1,51 @@
+<div class="flex">
+    <div>Blue
+        <div *ngFor="let player of draft.blueTeam" [tooltip]="player" [class.drafting]="draft.draftingPlayer?.player?.id === player.player.id" class="flex">
+            {{ player.player.name }}
+            <div class="position">
+                {{ player.playedPosition }}
+            </div>
+            <div class="champion">
+                {{ player.playedChampion }}
+            </div>
+            <div>
+                Skill score: {{ player.skillScore}}
+            </div>
+        </div>
+    </div>
+
+    <button *ngIf="canDraftNext()" (click)="draftNext()">Next</button>
+    <button *ngIf="draft.draftFinished" (click)="startGame()">Start game</button>
+
+    <div *ngIf="draft.draftingPlayer?.player?.id === mainPlayer.player.id">
+        <div *ngIf="!mainPlayer.playedPosition">
+            <div *ngFor="let position of positions | keyvalue">
+                <button *ngIf="!isPositionPicked(position.value)" (click)="draftPosition(position.value)">
+                    {{ position.value }}
+                </button>
+            </div>
+        </div>
+
+        <div *ngIf="mainPlayer.playedPosition && !mainPlayer.playedChampion">
+            <div *ngFor="let champion of champions | keyvalue">
+                <button *ngIf="!isChampionPicked(champion.value)" (click)="draftChampion(champion.value)">
+                {{ champion.value }}
+            </button>
+            </div>
+        </div>
+    </div>
+    <div>Red
+        <div *ngFor="let player of draft.redTeam" [tooltip]="player" [class.drafting]="draft.draftingPlayer?.player?.id === player.player.id" class="flex">
+            {{ player.player.name }}
+            <div class="position">
+                {{ player.playedPosition }}
+            </div>
+            <div class="champion">
+                {{ player.playedChampion }}
+            </div>
+            <div>
+                Skill score: {{ player.skillScore}}
+            </div>
+        </div>
+    </div>
+</div>

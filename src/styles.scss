@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "assets/scss/variables";
+@import "assets/scss/icons";
+@import "assets/scss/mixins";
+@import "assets/scss/helpers";
+@import "assets/scss/animations";
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-size: 15px;
+    line-height: 1.7em;
+    user-select: none;
+    color: $primary;
+    font-family: $fontFamily;
+    background: map-get($backgrounds, shade-D);
+    z-index: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    height: 40px;
+    font-size: 17px;
+    padding: 0;
+    transition: $transition;
+    cursor: pointer;
+    @include button(#423957, white);
+    &.debug {
+        @include button(#a51d29, white);
+    }
+    &:hover {
+        filter: brightness(150%);
+    }
+    &:active {
+        filter: brightness(50%);
+    }
+    &.disabled {
+        filter: saturate(0) contrast(.6) brightness(.7);
+        pointer-events: none;
+    }
+}
+
+p {
+    color: $smooth;
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+.tooltip {
+    position: absolute;
+    left: -1000px;
+    top: -1000px;
+    z-index: 30000;
+    display: block;
+    border-radius: 5px;
+    .tooltip-wrapper {
+        position: relative;
+        z-index: 6;
+        padding: 40px;
+        max-width: 400px;
+    }
+}

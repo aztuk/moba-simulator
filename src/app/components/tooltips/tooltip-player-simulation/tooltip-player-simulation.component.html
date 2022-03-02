@@ -1,0 +1,28 @@
+<div class="name">{{data.player.name}}</div>
+<hr>
+<div class="name">Moral: {{data.player.moral.current}}</div>
+<div class="name">Energy: {{data.player.energy.current}}</div>
+<div class="name">Map position: {{data.mapPosition | mapPosition}}</div>
+<hr>
+<div class="name">Etat: {{data.mentalMultiplier * 100| number: '1.0-0'}}%</div>
+<div class="name" *ngIf="data.playedPosition">{{ data.playedPosition}}: {{data.metaMultiplier * 100| number: '1.0-0'}}%</div>
+<div class="name" *ngIf="data.playedChampion">{{ data.playedChampion}}: {{data.championMasteryMultiplier * 100| number: '1.0-0'}}%</div>
+<hr>
+<div>
+    Laning phase skills:
+    <div class="skill">
+        Farming: {{ data.skills.farming | number: '1.0-0' }}
+    </div>
+    <div class="skill">
+        Engage: {{ data.skills.engage | number: '1.0-0' }}
+    </div>
+    <div class="skill">
+        Disengage: {{ data.skills.disengage | number: '1.0-0' }}
+    </div>
+    <div class="skill">
+        Roaming: {{ data.skills.roaming | number: '1.0-0' }}
+    </div>
+    <div class="skill">
+        Vision: {{ data.skills.vision | number: '1.0-0' }}
+    </div>
+</div>

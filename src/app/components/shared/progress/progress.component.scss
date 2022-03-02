@@ -1,0 +1,14 @@
+@import "../../../../assets/scss/variables";
+@import "../../../../assets/scss/mixins";
+:host {
+    display: block;
+    padding: 1px;
+    border-radius: 4px;
+    background: rgba(black, .1);
+}
+
+.bar {
+    transition: width 100ms linear;
+    height: 100%;
+    border-radius: 2px;
+}
